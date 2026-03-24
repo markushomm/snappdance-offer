@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnappDance - Sales Offer 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg-primary: #080C24;
+    --bg-gradient-bottom: #0F1540;
+    --bg-card: #101838;
+    --bg-surface: #171E47;
+    --border-subtle: rgba(255,255,255,0.08);
+    --border-accent: rgba(78, 205, 196, 0.3);
+    --text-primary: #f0f4f8;
+    --text-secondary: rgba(255,255,255,0.60);
+    --text-muted: rgba(255,255,255,0.35);
+    --text-section: rgba(255,255,255,0.75);
+    --accent: #4ECDC4;
+    --accent-light: #7eddd6;
+    --accent-secondary: #8B93FF;
+    --button-blue: #3456C5;
+    --gold: #f0b429;
+    --gold-light: #f7d070;
+    --tab-bar: #060820;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-gradient-bottom) 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page-break { page-break-before: always; }
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+  section { padding: 80px 0; border-bottom: 1px solid var(--border-subtle); }
+  section:last-child { border-bottom: none; }
+
+  /* ─── COVER ─── */
+  .cover {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; position: relative; overflow: hidden;
+    border-bottom: none; padding: 60px 0;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 50% 50%, rgba(78,205,196,0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(139,147,255,0.04) 0%, transparent 40%);
+    animation: drift 20s ease-in-out infinite; pointer-events: none;
+  }
+
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(2%, -1%) rotate(1deg); }
+    66% { transform: translate(-1%, 2%) rotate(-1deg); }
+  }
+
+  .cover-line {
+    width: 120px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 32px auto;
+  }
+
+  .cover-logo { position: relative; z-index: 1; margin-bottom: 48px; }
+  .cover-logo img { height: 200px; filter: invert(1); }
+
+  .cover h1 {
+    font-size: 3rem; font-weight: 300; color: var(--accent);
+    letter-spacing: 0.02em; position: relative; z-index: 1; margin-bottom: 16px;
+  }
+
+  .cover .subtitle {
+    font-size: 1.05rem; color: var(--text-secondary);
+    letter-spacing: 0.15em; text-transform: uppercase; position: relative; z-index: 1;
+  }
+
+  .cover .confidential {
+    position: relative; z-index: 1; margin-top: 80px;
+    font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.1em;
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  h2 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em; }
+  h2 .accent { color: var(--accent); }
+  h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; color: var(--text-primary); }
+  .section-subtitle { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 48px; max-width: 600px; }
+  p { color: var(--text-secondary); margin-bottom: 16px; line-height: 1.7; }
+  .section-num {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--accent); font-weight: 600; margin-bottom: 12px; display: block;
+  }
+
+  /* ─── SVG ICONS ─── */
+  .icon-box {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+  }
+  .icon-box svg { width: 22px; height: 22px; }
+  .icon-box.teal { background: rgba(78,205,196,0.12); }
+  .icon-box.teal svg { fill: #4ECDC4; stroke: #4ECDC4; }
+  .icon-box.purple { background: rgba(139,147,255,0.12); }
+  .icon-box.purple svg { fill: #8B93FF; stroke: #8B93FF; }
+  .icon-box.gold { background: rgba(240,180,41,0.12); }
+  .icon-box.gold svg { fill: #f0b429; stroke: #f0b429; }
+  .icon-box.rose { background: rgba(244,63,94,0.12); }
+  .icon-box.rose svg { fill: #f43f5e; stroke: #f43f5e; }
+  .icon-box.blue { background: rgba(52,86,197,0.12); }
+  .icon-box.blue svg { fill: #3456C5; stroke: #3456C5; }
+
+  /* ─── STAT GRID ─── */
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 48px 0; }
+  .stat-card {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 28px 24px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .stat-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;
+  }
+  .stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); font-family: 'JetBrains Mono', monospace; line-height: 1.2; }
+  .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 8px; }
+
+  /* ─── FEATURE CARDS ─── */
+  .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
+  .feature-card {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 32px 28px; transition: border-color 0.3s;
+  }
+  .feature-card:hover { border-color: var(--border-accent); }
+  .feature-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+  .feature-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0; line-height: 1.6; }
+
+  /* ─── BUNGEE HIGHLIGHT ─── */
+  .feature-highlight {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(78,205,196,0.05) 100%);
+    border: 1px solid var(--border-accent); border-radius: 20px; padding: 40px 36px;
+    margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center;
+  }
+  .feature-highlight h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--accent); }
+  .feature-highlight p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0; }
+  .feature-highlight .tech-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tech-spec { background: rgba(0,0,0,0.3); border-radius: 10px; padding: 14px 16px; }
+  .tech-spec .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 4px; }
+  .tech-spec .value { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); }
+
+  /* ─── PRICING ─── */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 48px; }
+  .pricing-card { border-radius: 20px; padding: 40px 36px; position: relative; overflow: hidden; }
+  .pricing-card.standard { background: var(--bg-card); border: 1px solid var(--border-subtle); }
+  .pricing-card.premium {
+    background: linear-gradient(160deg, var(--bg-card) 0%, rgba(78,205,196,0.08) 100%);
+    border: 1.5px solid var(--accent); box-shadow: 0 0 60px rgba(78,205,196,0.08);
+  }
+  /* premium badge removed */
+    background: var(--accent); color: var(--bg-primary);
+  }
+  .pricing-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 8px; }
+  .pricing-name { font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 20px; }
+  .pricing-amount { font-size: 3rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; margin-bottom: 6px; line-height: 1; }
+  .pricing-card.standard .pricing-amount { color: var(--text-primary); }
+  .pricing-card.premium .pricing-amount { color: var(--accent); }
+  .pricing-currency { font-size: 1.4rem; font-weight: 400; }
+  .pricing-vat { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 28px; }
+  .pricing-divider { height: 1px; background: var(--border-subtle); margin: 24px 0; }
+  .pricing-includes h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 16px; }
+  .pricing-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
+  .pricing-item .check { flex-shrink: 0; margin-top: 2px; width: 18px; height: 18px; }
+  .pricing-item .check svg { width: 18px; height: 18px; }
+  .pricing-card.standard .check svg { fill: var(--text-muted); }
+  .pricing-card.premium .check svg { fill: var(--accent); }
+
+  .savings-badge {
+    display: inline-block; background: rgba(78,205,196,0.12); color: var(--accent);
+    font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 20px;
+    margin-bottom: 20px; letter-spacing: 0.05em;
+  }
+
+  .pricing-note {
+    margin-top: 20px; padding: 14px 18px;
+    background: rgba(240,180,41,0.08); border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0; font-size: 0.82rem; color: var(--gold-light); line-height: 1.5;
+  }
+  .pricing-note-info {
+    margin-top: 20px; padding: 14px 18px;
+    background: rgba(78,205,196,0.06); border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0; font-size: 0.82rem; color: var(--accent-light); line-height: 1.5;
+  }
+
+  /* ─── TABLES ─── */
+  .content-table {
+    width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 32px;
+    border-radius: 16px; overflow: hidden; border: 1px solid var(--border-subtle);
+  }
+  .content-table thead th {
+    background: var(--bg-card); padding: 14px 20px; text-align: left;
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--accent); font-weight: 600; border-bottom: 1px solid var(--border-subtle);
+  }
+  .content-table thead th:last-child { text-align: right; }
+  .content-table tbody td { padding: 14px 20px; font-size: 0.9rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle); }
+  .content-table tbody td:last-child { text-align: right; color: var(--text-muted); }
+  .content-table tbody tr:last-child td { border-bottom: none; }
+  .content-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.015); }
+
+  /* ─── PLATFORM CARDS ─── */
+  .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+  .platform-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 32px 28px; }
+  .platform-card .platform-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .platform-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .platform-icon svg { width: 20px; height: 20px; }
+  .platform-icon.ios { background: rgba(78,205,196,0.12); }
+  .platform-icon.ios svg { fill: #4ECDC4; }
+  .platform-icon.android { background: rgba(139,147,255,0.12); }
+  .platform-icon.android svg { fill: #8B93FF; }
+  .platform-icon.china { background: rgba(244,63,94,0.12); }
+  .platform-icon.china svg { fill: #f43f5e; }
+  .platform-icon.legacy { background: rgba(240,180,41,0.12); }
+  .platform-icon.legacy svg { fill: #f0b429; }
+  .platform-card h3 { font-size: 1.1rem; margin-bottom: 0; }
+  .platform-card .platform-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+  .platform-specs { display: flex; flex-direction: column; gap: 10px; }
+  .platform-spec { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border-subtle); font-size: 0.85rem; }
+  .platform-spec:last-child { border-bottom: none; }
+  .platform-spec .spec-key { color: var(--text-muted); }
+  .platform-spec .spec-val { color: var(--text-primary); font-weight: 500; }
+
+  /* ─── DELIVERABLES ─── */
+  .deliverables-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+  .deliverable {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 14px; padding: 24px 20px; text-align: center;
+  }
+  .deliverable .d-icon { margin-bottom: 10px; display: flex; justify-content: center; }
+  .deliverable .d-icon svg { width: 32px; height: 32px; fill: var(--accent); }
+  .deliverable .d-title { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+  .deliverable .d-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+
+  /* ─── ANDROID NOTE ─── */
+  .android-note {
+    margin-top: 36px; padding: 28px;
+    background: linear-gradient(135deg, rgba(240,180,41,0.06) 0%, rgba(240,180,41,0.02) 100%);
+    border: 1px solid rgba(240,180,41,0.2); border-radius: 16px;
+  }
+  .android-note h4 { color: var(--gold); font-size: 0.95rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .android-note h4 svg { width: 18px; height: 18px; fill: var(--gold); }
+  .android-note p { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0; line-height: 1.7; }
+
+  /* ─── INFRA ─── */
+  .infra-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px; overflow: hidden; margin-bottom: 24px; margin-top: 48px; }
+  .infra-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid var(--border-subtle); font-size: 0.9rem; }
+  .infra-row:last-child { border-bottom: none; }
+  .infra-row .infra-name { color: var(--text-secondary); }
+  .infra-row .infra-cost { color: var(--text-primary); font-weight: 500; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+  .infra-row.total { background: rgba(78,205,196,0.06); font-weight: 600; }
+  .infra-row.total .infra-name { color: var(--text-primary); }
+  .infra-row.total .infra-cost { color: var(--accent); }
+
+  /* ─── TERMS ─── */
+  .terms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+  .term-block { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 28px 24px; }
+  .term-block h4 { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; }
+  .term-block ul { list-style: none; padding: 0; }
+  .term-block ul li { font-size: 0.85rem; color: var(--text-secondary); padding: 6px 0; padding-left: 18px; position: relative; line-height: 1.5; }
+  .term-block ul li::before { content: ''; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.5; }
+
+  /* ─── LANG BADGES ─── */
+  .lang-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .lang-badge {
+    font-size: 0.72rem; font-weight: 600; padding: 5px 12px; border-radius: 20px;
+    background: rgba(78,205,196,0.08); color: var(--accent);
+    border: 1px solid rgba(78,205,196,0.15); letter-spacing: 0.04em;
+  }
+
+  /* ─── EXCLUSIVE TAG ─── */
+  .exclusive-tag {
+    display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 4px 14px; border-radius: 4px; margin-bottom: 16px;
+    background: linear-gradient(135deg, rgba(78,205,196,0.15), rgba(139,147,255,0.15));
+    color: var(--accent); border: 1px solid rgba(78,205,196,0.25);
+  }
+
+  /* ─── FOOTER ─── */
+  .doc-footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border-subtle); }
+  .doc-footer .footer-line { width: 60px; height: 1px; background: var(--accent); margin: 0 auto 24px; opacity: 0.4; }
+  .doc-footer p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .page { padding: 0 24px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid, .pricing-grid, .platform-grid, .deliverables-grid, .terms-grid { grid-template-columns: 1fr; }
+    .feature-highlight { grid-template-columns: 1fr; }
+    .cover h1 { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ══════════ COVER ══════════ -->
+<section class="cover">
+  <div class="cover-logo">
+    <img src="data:image/png;base64,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Ydfddg0td9017LrrrmGXltkR8F968cXozTffDGvXrg25bvPNNw8dTzopK/oVco0/HIjRJRdfHE14bHxW9XFy0NasWbOw7XbbhpYtdw277r5baNKkiXPBn7j04kui8Y899j8/796jR/jr5X/L2f6b8fyMqEe3br/5b9U2rhaGDBsWdtxxx5x9f0nn9Dk7emrKlPV+3YYbbhgeGj0qbLvddjn3/seMHhM9PmFCmPXqq+Hnn3+Ota7q1auHQw87LBx19FFh7332yUhfDR82LLr2H/8M+SQZHh8aPSrnjj3INH80EKNtmjaLcqGD69evH/Y/8IDQtm3bsPseezgv/B8Lv/oqOvigNr85SNx4443Da2++kbN99tyzz0a9evT8w4HriAdHhqbNmuXke1y8eHG03977lPn17Tt0CNffeENOvPfnnnsuemTcw+GZp58OP/30U0baULNmzXByp1NKb9msWatm2vrtyMOPiD795JOQbx5+9NGwQ4sdcuL4g2xRIdMNgHz11Zdf5USwSfryyy/DQyMfDKee0im0OfCg6K4774zmfj43Z9oft5KSkt+9+p18/mbggAF521crVqwI3bp2C/PnzcvJ9/jNim/K9fpVq1aFbDfxiSeidse0jXp175H83xkLNknJ2xv797snHHTAAeGaq66K0nXcfLNiRchH33yTn+8L4iTcAL/yxYIF4d57+ofDDz00nH/uedH7772Xk4PaVBo7eswf/vuwoUNDPlu8aFHo2qVrWLRoUcEfC9nksUcfiw4/5NDowvMvCB9+8EHIJsmA9dCDD4Ujjzgi3HbrrY4bIG2EG+A3RVEUJk+aFI5rd2w4o1evaPbs2QU5QLm3f//oz67eL1q4KIwbOzav+2fB/Pmhe5euYdmyZXn9PnPBhx9+GHU6+ZTosksuCZ9//nnIZskFOAY+MCDs23rv6LFHHnXsALETboA/NX3a9ND++BPC36+5puAGJyOGDV+n3xtcMijku48//jgkb30ic2664cbo+HbHhtdmzcqpj+Hrr78Ol116aTj7rD6RgAzESbgB1nkm58ERI0PrPVtFjzz8cEGEnAdHjoyWLFmyTr/70UcfhenTpuV9v8yePTuc1qlT3r/PbJytST40P6ikJPzyyy8hVz391FPh2GPalq7Sl+m2APlJuAHWy7Jly8LfLvtrOP/cc/N+cLK+szHFA4tC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" alt="SnappDance Logo">
+  </div>
+  <div class="cover-line"></div>
+  <h1>Sales Offer</h1>
+  <div class="subtitle">Complete Dance Education Platform &nbsp;|&nbsp; Exclusive License</div>
+  <div class="cover-line" style="margin-top: 48px;"></div>
+  <div class="confidential">March 2026 &nbsp;&middot;&nbsp; Confidential &nbsp;&middot;&nbsp; Valid 60 Days</div>
+</section>
+
+<!-- ══════════ OVERVIEW ══════════ -->
+<section>
+  <span class="section-num">01 &mdash; Overview</span>
+  <h2>The World's Most Complete <span class="accent">Dance Education</span> Platform</h2>
+  <p class="section-subtitle">SnappDance is a production-ready, multi-platform streaming application designed for ballroom and latin dance instruction. Built over 6+ years of development, it offers professional-grade music, video, and educational content in a premium mobile experience.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Standalone Apps</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">6+</div>
+      <div class="stat-label">Years Development</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">5</div>
+      <div class="stat-label">Languages</div>
+    </div>
+
+  </div>
+
+  <div class="lang-badges">
+    <span class="lang-badge">English</span>
+    <span class="lang-badge">Deutsch</span>
+    <span class="lang-badge">&#x4E2D;&#x6587;</span>
+    <span class="lang-badge">&#x65E5;&#x672C;&#x8A9E;</span>
+    <span class="lang-badge">&#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</span>
+  </div>
+</section>
+
+<!-- ══════════ KEY FEATURES ══════════ -->
+<section>
+  <span class="section-num">02 &mdash; Key Features</span>
+  <h2>Built for <span class="accent">Professional</span> Dance Training</h2>
+  <p class="section-subtitle">Every feature is designed to serve dancers, instructors, and dance schools with a premium, app-store-ready experience.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon-box teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3" fill="currentColor"/><circle cx="18" cy="16" r="3" fill="currentColor"/></svg>
+      </div>
+      <h3>Professional Music Player</h3>
+      <p>Full-featured audio player with playlists, queue management, shuffle/repeat modes, waveform visualization, and background playback with Lock Screen integration.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor"/></svg>
+      </div>
+      <h3>Video Streaming</h3>
+      <p>Native video player with trailer previews, direct streaming from CDN via signed URLs. No local downloads required. Fullscreen with standard iOS controls.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg>
+      </div>
+      <h3>Favorites &amp; Library</h3>
+      <p>Personal library with favorites, listening history, purchased bundles overview, and statistics. Pull-to-refresh, search, and filter functionality.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box rose">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <h3>PDF Learning Material</h3>
+      <p>Integrated PDF viewer for step charts, technique guides, and music theory documents. Async loading from CDN with automatic scaling.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h3>Netflix-Style Discovery</h3>
+      <p>Cinematic home screen with auto-rotating featured banners, swipe navigation, and rich content cards. Content is organized in browsable packages with hero images, descriptions, and statistics &mdash; designed for maximum engagement.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <h3>5-Language Localization</h3>
+      <p>Complete database-driven localization system supporting English, German, Chinese, Japanese, and Russian. Automatic language detection with lazy-loaded translations &mdash; ready for additional languages.</p>
+    </div>
+  </div>
+
+  <div class="feature-highlight">
+    <div>
+      <h3>Bungee Audio Engine</h3>
+      <p>The proprietary C++ audio engine is the platform's core differentiator. It enables real-time tempo adjustment from &minus;25% to +25% <strong>without changing the pitch</strong> &mdash; essential for dance practice at different skill levels. Professional-grade time-stretching that competitors simply don't offer.</p>
+      <p style="margin-top: 12px;">Includes haptic feedback, 7-point snap slider, and double-tap reset. Delivered as a compiled xcframework with Objective-C++ bridge.</p>
+    </div>
+    <div class="tech-specs">
+      <div class="tech-spec"><div class="label">Engine</div><div class="value">C++ xcframework</div></div>
+      <div class="tech-spec"><div class="label">Range</div><div class="value">&pm;25% Tempo</div></div>
+      <div class="tech-spec"><div class="label">Quality</div><div class="value">Zero Pitch Shift</div></div>
+      <div class="tech-spec"><div class="label">Visualization</div><div class="value">200-sample Waveform</div></div>
+    </div>
+  </div>
+
+  <!-- Admin Panel Highlight -->
+  <div class="feature-highlight" style="margin-top: 24px;">
+    <div>
+      <h3>Web-Based Admin Panel</h3>
+      <p>A complete content management system deployed on Cloudflare Pages. Manage the entire app experience from the browser &mdash; no developer needed for day-to-day content operations.</p>
+      <p style="margin-top: 12px;">Create and publish packages, bundles, and assets. Reorder the home screen layout with drag-and-drop. Manage users, permissions, and featured banners. Full multilingual content editing across all 5 languages.</p>
+    </div>
+    <div class="tech-specs">
+      <div class="tech-spec"><div class="label">Dashboard</div><div class="value">Stats &amp; Activity</div></div>
+      <div class="tech-spec"><div class="label">Content</div><div class="value">Full CRUD Hierarchy</div></div>
+      <div class="tech-spec"><div class="label">Layout</div><div class="value">Drag &amp; Drop</div></div>
+      <div class="tech-spec"><div class="label">Users</div><div class="value">Roles &amp; Permissions</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PLATFORMS ══════════ -->
+<section>
+  <span class="section-num">03 &mdash; Platforms</span>
+  <h2>Four App Variants, <span class="accent">Two Continents</span></h2>
+  <p class="section-subtitle">Complete coverage of global and Chinese markets across iOS and Android.</p>
+
+  <div class="platform-grid">
+    <div class="platform-card">
+      <div class="platform-header">
+        <div class="platform-icon ios">
+          <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        </div>
+        <div><h3>iOS Modern</h3><div class="platform-tag">Primary &middot; SwiftUI</div></div>
+      </div>
+      <div class="platform-specs">
+        <div class="platform-spec"><span class="spec-key">Framework</span><span class="spec-val">SwiftUI, iOS 16+</span></div>
+        <div class="platform-spec"><span class="spec-key">Codebase</span><span class="spec-val">6,200+ LOC, 39 files</span></div>
+        <div class="platform-spec"><span class="spec-key">Architecture</span><span class="spec-val">MVVM, @Observable</span></div>
+        <div class="platform-spec"><span class="spec-key">Backend</span><span class="spec-val">Supabase + Cloudflare R2</span></div>
+        <div class="platform-spec"><span class="spec-key">Audio</span><span class="spec-val">Bungee C++ Engine</span></div>
+        <div class="platform-spec"><span class="spec-key">Views</span><span class="spec-val">19 SwiftUI screens</span></div>
+      </div>
+    </div>
+
+    <div class="platform-card">
+      <div class="platform-header">
+        <div class="platform-icon legacy">
+          <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        </div>
+        <div><h3>iOS Legacy</h3><div class="platform-tag">Complete &middot; Objective-C</div></div>
+      </div>
+      <div class="platform-specs">
+        <div class="platform-spec"><span class="spec-key">Framework</span><span class="spec-val">UIKit (Objective-C)</span></div>
+        <div class="platform-spec"><span class="spec-key">Backend</span><span class="spec-val">Parse SDK</span></div>
+        <div class="platform-spec"><span class="spec-key">Dependencies</span><span class="spec-val">CocoaPods</span></div>
+        <div class="platform-spec"><span class="spec-key">Push</span><span class="spec-val">Airship SDK</span></div>
+        <div class="platform-spec"><span class="spec-key">Status</span><span class="spec-val">Complete, functional</span></div>
+        <div class="platform-spec"><span class="spec-key">Extras</span><span class="spec-val">M4ATools, Extensions</span></div>
+      </div>
+    </div>
+
+    <div class="platform-card">
+      <div class="platform-header">
+        <div class="platform-icon android">
+          <svg viewBox="0 0 24 24"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.27-.85-.31-.16-.69-.04-.85.27l-1.86 3.22c-1.36-.64-2.91-1-4.56-1-1.65 0-3.2.36-4.56 1L5.49 5.72c-.16-.31-.54-.43-.85-.27-.31.16-.43.54-.27.85L6.21 9.48C3.41 11.15 1.56 14.04 1 17.4h21.8c-.56-3.36-2.41-6.25-5.2-7.92zM7 14.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm10 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+        </div>
+        <div><h3>Android</h3><div class="platform-tag">Production &middot; Kotlin</div></div>
+      </div>
+      <div class="platform-specs">
+        <div class="platform-spec"><span class="spec-key">Language</span><span class="spec-val">Kotlin + Java</span></div>
+        <div class="platform-spec"><span class="spec-key">Codebase</span><span class="spec-val">200 source files</span></div>
+        <div class="platform-spec"><span class="spec-key">Architecture</span><span class="spec-val">MVVM + Koin DI</span></div>
+        <div class="platform-spec"><span class="spec-key">Media</span><span class="spec-val">ExoPlayer</span></div>
+        <div class="platform-spec"><span class="spec-key">Payments</span><span class="spec-val">RevenueCat IAP</span></div>
+        <div class="platform-spec"><span class="spec-key">Build</span><span class="spec-val">APK v1.3.2</span></div>
+      </div>
+    </div>
+
+    <div class="platform-card">
+      <div class="platform-header">
+        <div class="platform-icon china">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <div><h3>China Model</h3><div class="platform-tag">Android &middot; China Market</div></div>
+      </div>
+      <div class="platform-specs">
+        <div class="platform-spec"><span class="spec-key">Payments</span><span class="spec-val">WeChat Pay + Alipay</span></div>
+        <div class="platform-spec"><span class="spec-key">Distribution</span><span class="spec-val">AppInChina SDK</span></div>
+        <div class="platform-spec"><span class="spec-key">Server</span><span class="spec-val">snapp-dance.cn (Parse)</span></div>
+        <div class="platform-spec"><span class="spec-key">Sync</span><span class="spec-val">AWS China &harr; Global</span></div>
+        <div class="platform-spec"><span class="spec-key">Compliance</span><span class="spec-val">ICP, Privacy, ToS</span></div>
+        <div class="platform-spec"><span class="spec-key">Build</span><span class="spec-val">Separate Gradle variants</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ INCLUDED CONTENT ══════════ -->
+<section>
+  <span class="section-num">04 &mdash; Included Content</span>
+  <h2>Proprietary <span class="accent">Dance Content</span></h2>
+  <p class="section-subtitle">Two self-produced content packages are included in Package B with full rights transfer. All music tracks and PDF step charts are original productions.</p>
+
+  <table class="content-table">
+    <thead>
+      <tr>
+        <th>Package</th>
+        <th>Content</th>
+        <th>Included</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Elite Solo Class</strong></td>
+        <td>Level 1: 3 dances &middot; Level 2: 3 dances &middot; Level 3: 4 dances</td>
+        <td>Music + PDFs</td>
+      </tr>
+      <tr>
+        <td><strong>Medal Classes</strong></td>
+        <td>Bronze: 3 dances &middot; Silver: 3 dances &middot; Gold: 4 dances</td>
+        <td>Music + PDFs</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pricing-note-info" style="margin-top: 24px;">
+    <strong>Platform capability:</strong> The app and backend are designed to host unlimited additional content packages. The hierarchical content system (Package &rarr; Bundle &rarr; Category &rarr; Asset) supports onboarding of any number of content partners and dance styles.
+  </div>
+</section>
+
+<!-- ══════════ PRICING ══════════ -->
+<section>
+  <span class="section-num">05 &mdash; Pricing</span>
+  <h2>Two Packages, <span class="accent">One Decision</span></h2>
+  <p class="section-subtitle">Exclusive license with full IP transfer. All source code, assets, documentation, credentials, and deployment rights included.</p>
+
+  <div class="exclusive-tag">Exclusive License &mdash; Full IP Transfer</div>
+
+  <div class="pricing-grid">
+    <!-- PACKAGE A -->
+    <div class="pricing-card standard">
+      <div class="pricing-label">Package A</div>
+      <div class="pricing-name">iOS & China Complete</div>
+      <div class="pricing-amount"><span class="pricing-currency">&euro;</span>330,000</div>
+      <div class="pricing-vat">Net, plus applicable tax</div>
+      <div class="pricing-divider"></div>
+      <div class="pricing-includes">
+        <h4>What's included</h4>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>iOS Modern App (SwiftUI, production-ready)</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>iOS Legacy App (Objective-C, complete)</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bungee Audio Engine (C++ xcframework)</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Supabase Backend (Auth, DB, Edge Functions)</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cloudflare R2 Media Storage Setup</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>China Model (WeChat/Alipay, snapp-dance.cn)</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>AWS China &harr; Global Sync Infrastructure</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Admin Panel (Content &amp; User Management, Cloudflare Pages)</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>5-Language Localization System</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete Documentation (12 guides)</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Technical Handover &amp; Documentation</div>
+      </div>
+      <div class="pricing-note-info">iOS apps (Modern + Legacy) with full China market backend, server infrastructure, and compliance documentation included.</div>
+    </div>
+
+    <!-- PACKAGE B -->
+    <div class="pricing-card premium">
+      <div class="pricing-label">Package B</div>
+      <div class="pricing-name">Complete Platform</div>
+      <div class="pricing-amount"><span class="pricing-currency">&euro;</span>380,000</div>
+      <div class="pricing-vat">Net, plus applicable tax</div>
+      <div class="savings-badge">Best Value &mdash; All Platforms + Content</div>
+      <div class="pricing-divider"></div>
+      <div class="pricing-includes">
+        <h4>Everything in Package A, plus</h4>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Android App (Kotlin, 200 source files)</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Android China Variant (WeChat/Alipay)</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>RevenueCat IAP Integration</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Production APK v1.3.2</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ExoPlayer Media Pipeline</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Content: Elite Solo Class (3 levels, 10 dances)</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Content: Medal Classes (3 levels, 10 dances)</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All Proprietary Music Tracks &amp; PDF Materials</div>
+        <div class="pricing-item"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete IP Ownership Across All Platforms</div>
+      </div>
+</div>
+  </div>
+</section>
+
+<!-- ══════════ DELIVERABLES ══════════ -->
+<section>
+  <span class="section-num">06 &mdash; Deliverables</span>
+  <h2>Complete <span class="accent">Handover</span> Package</h2>
+  <p class="section-subtitle">Everything needed to continue development, deploy, and operate the platform independently.</p>
+
+  <div class="deliverables-grid">
+    <div class="deliverable">
+      <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      <div class="d-title">Source Code</div>
+      <div class="d-desc">Complete git repositories for all platforms including full commit history</div>
+    </div>
+    <div class="deliverable">
+      <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <div class="d-title">Credentials &amp; Keys</div>
+      <div class="d-desc">API keys, signing certificates, push notification keys, App Store credentials</div>
+    </div>
+    <div class="deliverable">
+      <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+      <div class="d-title">Documentation</div>
+      <div class="d-desc">12 technical guides: architecture, schema, deployment, API, admin, localization</div>
+    </div>
+    <div class="deliverable">
+      <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+      <div class="d-title">Backend &amp; Infra</div>
+      <div class="d-desc">Supabase project, Cloudflare R2 bucket, Edge Functions, Parse Server configs</div>
+    </div>
+    <div class="deliverable">
+      <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+      <div class="d-title">Design Assets</div>
+      <div class="d-desc">Logos (PDF, PNG), backgrounds, app icons, font files (Montserrat, Raleway)</div>
+    </div>
+    <div class="deliverable">
+      <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="d-title">Knowledge Transfer</div>
+      <div class="d-desc">Technical handover, architecture walkthrough, and deployment guidance. Ongoing support available.</div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<!-- ══════════ INFRASTRUCTURE ══════════ -->
+<section>
+  <span class="section-num">07 &mdash; Infrastructure</span>
+  <h2>Lean <span class="accent">Operating Costs</span></h2>
+  <p class="section-subtitle">The platform runs on modern cloud infrastructure with minimal monthly costs. The buyer sets up their own accounts for all services.</p>
+
+  <div class="infra-card">
+    <div class="infra-row"><span class="infra-name">Supabase Pro (Auth, DB, Realtime, Storage)</span><span class="infra-cost">&euro;25/mo</span></div>
+    <div class="infra-row"><span class="infra-name">Cloudflare R2 (Media Storage)</span><span class="infra-cost">~&euro;5&ndash;15/mo</span></div>
+    <div class="infra-row"><span class="infra-name">Apple Developer Account</span><span class="infra-cost">&euro;99/yr</span></div>
+    <div class="infra-row"><span class="infra-name">Google Play Developer (one-time)</span><span class="infra-cost">&euro;25</span></div>
+    <div class="infra-row"><span class="infra-name">China Server (if applicable)</span><span class="infra-cost">~&euro;50&ndash;100/mo</span></div>
+    <div class="infra-row"><span class="infra-name">AWS Sync China &harr; Global (if applicable)</span><span class="infra-cost">~&euro;20&ndash;50/mo</span></div>
+    <div class="infra-row total"><span class="infra-name">Estimated Total</span><span class="infra-cost">~&euro;100&ndash;190/mo</span></div>
+  </div>
+
+  <div class="pricing-note-info">Without China operations: approximately &euro;30&ndash;50/month. All accounts are set up and managed by the buyer.</div>
+</section>
+
+<!-- ══════════ GROWTH ══════════ -->
+<section>
+  <span class="section-num">08 &mdash; Optional Development</span>
+  <h2>Available <span class="accent">Extension Packages</span></h2>
+  <p class="section-subtitle">The platform architecture supports a range of additional features. These can be developed by our team at separate cost upon request.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon-box teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h3>Live &amp; Classroom Coaching</h3>
+      <p>Real-time video coaching with synchronized music playback for remote dance lessons. Supports multi-camera setups (trainer and students) via WebRTC.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <h3>Calendar &amp; Scheduling</h3>
+      <p>Integrated booking and scheduling system for dance lessons with push notification reminders and calendar sync for students and instructors.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <h3>In-App Chat</h3>
+      <p>Direct messaging between students and instructors, group chats for classes, and media sharing for feedback and coordination.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box rose">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <h3>In-App Purchases &amp; Subscriptions</h3>
+      <p>StoreKit 2 (iOS) and Google Play Billing (Android) integration for bundle purchases or recurring subscription models with server-side validation.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <h3>Offline Mode</h3>
+      <p>Download manager for videos and audio with storage management, allowing users to access content without an internet connection.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Social &amp; Community Features</h3>
+      <p>User progress tracking, lesson completion, ratings and reviews, shareable playlists, and achievement systems to drive engagement.</p>
+    </div>
+  </div>
+
+  <div class="pricing-note-info" style="margin-top: 24px;">All extension packages are available for development by our experienced team at separate, project-based pricing. Contact us for a detailed scope and quote.</div>
+</section>
+
+<!-- ══════════ TERMS ══════════ -->
+<section>
+  <span class="section-num">09 &mdash; Terms</span>
+  <h2>License &amp; <span class="accent">Conditions</span></h2>
+
+  <div class="terms-grid">
+    <div class="term-block">
+      <h4>Exclusive License Terms</h4>
+      <ul>
+        <li>Full IP transfer &mdash; buyer receives complete ownership</li>
+        <li>Seller retains no rights to resell, sublicense, or reuse</li>
+        <li>All source code, assets, and documentation included</li>
+        <li>App Store listings and history transferable (negotiable)</li>
+        <li>All server credentials and accounts transferred</li>
+      </ul>
+    </div>
+    <div class="term-block">
+      <h4>Payment &amp; Validity</h4>
+      <ul>
+        <li>All prices net, plus applicable tax (MwSt/VAT)</li>
+        <li>Full payment required prior to handover</li>
+        <li>This offer is valid for 60 days from issue date</li>
+        <li>No warranty on future functionality</li>
+        <li>Escrow service available upon request</li>
+      </ul>
+    </div>
+    <div class="term-block">
+      <h4>Knowledge Transfer</h4>
+      <ul>
+        <li>Technical handover and architecture walkthrough</li>
+        <li>Deployment guidance and documentation</li>
+        <li>Ongoing support available at hourly rate</li>
+        <li>Remote or on-site (upon request)</li>
+      </ul>
+    </div>
+    <div class="term-block">
+      <h4>Content Notes</h4>
+      <ul>
+        <li>Elite Solo &amp; Medal Classes: full rights transfer</li>
+        <li>The platform supports unlimited content partners</li>
+        <li>Content partner relationships and contacts provided</li>
+        <li>Content management system ready for new partners</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SUMMARY TABLE ══════════ -->
+<section style="text-align: center;">
+  <span class="section-num">Summary</span>
+  <h2 style="margin-bottom: 48px;">Package <span class="accent">Comparison</span></h2>
+
+  <table class="content-table" style="text-align: left;">
+    <thead>
+      <tr>
+        <th>Included</th>
+        <th style="text-align: center;">Package A<br><small style="font-weight:400; text-transform:none; letter-spacing:0;">iOS &amp; China</small></th>
+        <th style="text-align: center;">Package B<br><small style="font-weight:400; text-transform:none; letter-spacing:0;">Complete Platform</small></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>iOS Modern (SwiftUI)</td><td style="text-align:center; color: var(--accent);">&#10003;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr><td>iOS Legacy (Objective-C)</td><td style="text-align:center; color: var(--accent);">&#10003;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr><td>Bungee Audio Engine (C++)</td><td style="text-align:center; color: var(--accent);">&#10003;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr><td>Supabase Backend + Cloudflare R2</td><td style="text-align:center; color: var(--accent);">&#10003;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr><td>China Model (WeChat/Alipay, Server, AWS Sync)</td><td style="text-align:center; color: var(--accent);">&#10003;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr><td>Admin Panel (Dashboard, Content, Layout, Users)</td><td style="text-align:center; color: var(--accent);">&#10003;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr><td>Documentation (12 technical guides)</td><td style="text-align:center; color: var(--accent);">&#10003;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr><td>5-Language Localization</td><td style="text-align:center; color: var(--accent);">&#10003;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr><td>Android App (Kotlin, 200 files)</td><td style="text-align:center; color: var(--text-muted);">&mdash;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr><td>Android China Variant</td><td style="text-align:center; color: var(--text-muted);">&mdash;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr><td>Content: Elite Solo Class (3 levels, 10 dances)</td><td style="text-align:center; color: var(--text-muted);">&mdash;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr><td>Content: Medal Classes (3 levels, 10 dances)</td><td style="text-align:center; color: var(--text-muted);">&mdash;</td><td style="text-align:center; color: var(--accent);">&#10003;</td></tr>
+      <tr style="background: rgba(78,205,196,0.06);">
+        <td><strong style="color: var(--text-primary);">Price (Exclusive, Net)</strong></td>
+        <td style="text-align:center; color: var(--text-primary); font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 1.1rem;">&euro;330,000</td>
+        <td style="text-align:center; color: var(--accent); font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 1.1rem;">&euro;380,000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pricing-note" style="text-align: left; margin-top: 24px;">
+    <strong>Android Development Note:</strong> The Android app is production-ready (v1.3.2) but requires additional development to reach feature parity with the latest iOS version. This includes UI modernization, backend migration to Supabase, and Bungee Engine porting. This work is <strong>not included</strong> in the purchase price and is noted here for transparency and planning.
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<div class="doc-footer">
+  <div class="footer-line"></div>
+  <p style="color: var(--text-secondary); font-weight: 500;">SnappDance</p>
+  <p>Confidential Sales Document &nbsp;&middot;&nbsp; March 2026</p>
+  <p>This document and its contents are confidential and intended solely for the named recipient.</p>
+  <p style="margin-top: 12px; color: var(--accent); font-size: 0.75rem;">Valid for 60 days from date of issue</p>
+</div>
+
+</div>
+</body>
+</html>
