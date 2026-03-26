@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnappDance - Content Library</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg-primary: #080C24;
+    --bg-gradient-bottom: #0F1540;
+    --bg-card: #101838;
+    --bg-surface: #171E47;
+    --border-subtle: rgba(255,255,255,0.08);
+    --border-accent: rgba(78, 205, 196, 0.3);
+    --text-primary: #f0f4f8;
+    --text-secondary: rgba(255,255,255,0.60);
+    --text-muted: rgba(255,255,255,0.35);
+    --accent: #4ECDC4;
+    --accent-light: #7eddd6;
+    --accent-secondary: #8B93FF;
+    --gold: #f0b429;
+    --gold-light: #f7d070;
+    --rose: #f43f5e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-gradient-bottom) 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+  section { padding: 60px 0; border-bottom: 1px solid var(--border-subtle); }
+  section:last-child { border-bottom: none; }
+
+  /* Cover */
+  .cover {
+    min-height: 60vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    position: relative; overflow: hidden; border-bottom: none; padding: 60px 0;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 50% 50%, rgba(78,205,196,0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(139,147,255,0.04) 0%, transparent 40%);
+    animation: drift 20s ease-in-out infinite; pointer-events: none;
+  }
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(2%, -1%) rotate(1deg); }
+    66% { transform: translate(-1%, 2%) rotate(-1deg); }
+  }
+  .cover-line { width: 120px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); margin: 24px auto; }
+  .cover h1 { font-size: 2.6rem; font-weight: 300; color: var(--accent); letter-spacing: 0.02em; position: relative; z-index: 1; margin-bottom: 12px; }
+  .cover .subtitle { font-size: 1rem; color: var(--text-secondary); letter-spacing: 0.15em; text-transform: uppercase; position: relative; z-index: 1; }
+  .cover .confidential { position: relative; z-index: 1; margin-top: 40px; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.1em; }
+
+  /* Typography */
+  h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em; }
+  h2 .accent { color: var(--accent); }
+  h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; }
+  .section-num { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); font-weight: 600; margin-bottom: 12px; display: block; }
+  .section-subtitle { font-size: 1rem; color: var(--text-secondary); margin-bottom: 40px; max-width: 650px; }
+  p { color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+
+  /* Stats */
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 40px 0; }
+  .stat-card {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 14px; padding: 24px 18px; text-align: center; position: relative; overflow: hidden;
+  }
+  .stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5; }
+  .stat-number { font-size: 1.8rem; font-weight: 800; color: var(--accent); font-family: 'JetBrains Mono', monospace; line-height: 1.2; }
+  .stat-label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+
+  /* Content Cards */
+  .content-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 32px; }
+  .content-card {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 28px 28px; transition: border-color 0.3s;
+    display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center;
+  }
+  .content-card:hover { border-color: var(--border-accent); }
+  .content-card.own { border-left: 3px solid var(--accent); }
+  .content-card.partner { border-left: 3px solid var(--accent-secondary); }
+  .content-card.music { border-left: 3px solid var(--gold); }
+
+  .content-info h3 { font-size: 1.05rem; margin-bottom: 4px; color: var(--text-primary); }
+  .content-info .partner-name { font-size: 0.8rem; color: var(--accent-secondary); font-weight: 500; margin-bottom: 6px; }
+  .content-card.own .partner-name { color: var(--accent); }
+  .content-card.music .partner-name { color: var(--gold); }
+  .content-info p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0; line-height: 1.5; }
+
+  .content-meta { text-align: right; white-space: nowrap; }
+  .content-type { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 4px 10px; background: rgba(255,255,255,0.05); border-radius: 6px; display: inline-block; }
+
+  /* Badge */
+  .badge { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.05em; margin-left: 8px; }
+  .badge.included { background: rgba(78,205,196,0.15); color: var(--accent); }
+  .badge.licensable { background: rgba(139,147,255,0.12); color: var(--accent-secondary); }
+
+  /* Note boxes */
+  .note-box { margin-top: 32px; padding: 18px 22px; border-radius: 12px; font-size: 0.88rem; line-height: 1.6; }
+  .note-box.info { background: rgba(78,205,196,0.08); border-left: 3px solid var(--accent); color: var(--accent-light); }
+  .note-box.warning { background: rgba(240,180,41,0.08); border-left: 3px solid var(--gold); color: var(--gold-light); }
+
+  /* Category header */
+  .category-header { margin-top: 40px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .category-header h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 0; }
+  .category-line { flex: 1; height: 1px; background: var(--border-subtle); }
+
+  @media (max-width: 700px) {
+    .page { padding: 0 20px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .content-card { grid-template-columns: 1fr; }
+    .content-meta { text-align: left; }
+    .cover h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- COVER -->
+<section class="cover">
+  <h1>Content Library</h1>
+  <div class="cover-line"></div>
+  <div class="subtitle">SnappDance Platform Content Overview</div>
+  <div class="confidential">Confidential &mdash; For Prospective Buyers Only</div>
+</section>
+
+<!-- OVERVIEW -->
+<section>
+  <span class="section-num">01 &mdash; Overview</span>
+  <h2>Platform <span class="accent">Content</span></h2>
+  <p class="section-subtitle">SnappDance hosts a comprehensive library of professional dance education content from leading international instructors, choreographers, and music labels.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">17</div>
+      <div class="stat-label">Content Packages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">10+</div>
+      <div class="stat-label">Content Partners</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">3,500+</div>
+      <div class="stat-label">Media Assets</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">52 GB</div>
+      <div class="stat-label">Total Library</div>
+    </div>
+  </div>
+
+  <div class="note-box info">
+    Two content packages (Elite Solo Class and Medal Classes) are owned outright and included in the sale with full rights transfer. All other content is from external partners. The platform infrastructure, integrations, and partner relationships are fully established &mdash; the buyer can negotiate directly with existing content partners to continue or expand the library.
+  </div>
+</section>
+
+<!-- OWN CONTENT -->
+<section>
+  <span class="section-num">02 &mdash; Included Content</span>
+  <h2>Owned <span class="accent">Content Packages</span></h2>
+  <p class="section-subtitle">Full IP transfer included in the sale. Professional dance education content with complete rights.</p>
+
+  <div class="content-grid">
+    <div class="content-card own">
+      <div class="content-info">
+        <h3>Elite Solo Class <span class="badge included">Included in Sale</span></h3>
+        <div class="partner-name">SnappDance Original</div>
+        <p>Syllabus-based solo dance choreographies across 3 progressive levels (10 dances total). A rapidly growing market segment. Each dance includes professionally filmed videos by a professional dancer &mdash; both explained with counts and performed to music. Complemented by practice music tracks and detailed PDF guides for self-study.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video + Audio + PDF</div>
+      </div>
+    </div>
+
+    <div class="content-card own">
+      <div class="content-info">
+        <h3>Medal Classes <span class="badge included">Included in Sale</span></h3>
+        <div class="partner-name">SnappDance Original</div>
+        <p>Syllabus-based choreographies across 3 levels (Bronze, Silver, Gold) covering 10 dances. Same professional production structure as Elite Solo &mdash; video demonstrations with explained counts and on-music performances, practice audio tracks, and comprehensive PDF documentation.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video + Audio + PDF</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER CONTENT: VIDEO -->
+<section>
+  <span class="section-num">03 &mdash; Partner Content</span>
+  <h2>Video <span class="accent">Content Partners</span></h2>
+  <p class="section-subtitle">Professional dance instruction from world-renowned instructors and organizations. Existing partnerships and integrations ready for the buyer to continue.</p>
+
+  <div class="category-header">
+    <h3>Technique &amp; Syllabus</h3>
+    <div class="category-line"></div>
+  </div>
+
+  <div class="content-grid">
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>ISTD Technique <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">Bryan &amp; Carmen</div>
+        <p>Complete International Standard Teachers of Dance (ISTD) syllabus technique, professionally demonstrated. One of the most recognized dance qualification frameworks worldwide.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>IDTA Technique <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">Bryan &amp; Carmen</div>
+        <p>International Dance Teachers' Association (IDTA) syllabus technique. Complementary to ISTD, covering the second major international dance teaching framework.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>Latin Fundamentals <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">Hans, Bryan &amp; Carmen</div>
+        <p>Essential Latin dance foundations taught by top-level professionals. Core technique for all Latin dance styles.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>Alex Moore Ballroom Technique <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">William Pino</div>
+        <p>The definitive ballroom technique standard, demonstrated by one of the world's leading ballroom professionals. Essential reference for competitive and social dancers.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-header">
+    <h3>Professional Instructors</h3>
+    <div class="category-line"></div>
+  </div>
+
+  <div class="content-grid">
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>Ballroom with Loraine Barry <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">Loraine Barry</div>
+        <p>High-quality ballroom instruction from an internationally acclaimed professional dancer and adjudicator.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>Ballroom with Domen &amp; Natasha <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">Domen &amp; Natasha</div>
+        <p>Premium ballroom dance content from a top competitive partnership known for their exceptional technique and presentation.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>Latin Stars <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">Top Professionals</div>
+        <p>Latin dance content featuring leading professionals from the competitive circuit.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>Authentic Latin Percussion <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">Barbara</div>
+        <p>Educational content focused on understanding authentic Latin rhythms and percussion &mdash; essential for musicality in Latin dance.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-header">
+    <h3>Specialized Content</h3>
+    <div class="category-line"></div>
+  </div>
+
+  <div class="content-grid">
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>Rhythmecality <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">NN Square</div>
+        <p>Unique rhythmicality training program available as both video lessons (Level 1 + 2) and dedicated audio practice tracks. Two packages from one partner &mdash; covering the visual and auditory dimensions of rhythm education.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video + Audio</div>
+      </div>
+    </div>
+
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>Beauty &amp; Style <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">Boyko</div>
+        <p>Professional hair and styling tutorials specifically for competitive and social dancers. Covers competition-ready hairstyles and presentation.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>DiscoFox</h3>
+        <div class="partner-name">Dance School Content</div>
+        <p>Popular social dance style, especially in German-speaking markets. Dance school produced content.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>Hip-Hop</h3>
+        <div class="partner-name">Dance School Content</div>
+        <p>Modern street dance instruction. Dance school produced content expanding the platform beyond ballroom and Latin.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>Tango Argentino</h3>
+        <div class="partner-name">Specialized Set</div>
+        <p>Argentine Tango instruction set covering the fundamentals of this popular social dance style.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+
+    <div class="content-card partner">
+      <div class="content-info">
+        <h3>American Smooth</h3>
+        <div class="partner-name">Specialized Set</div>
+        <p>American style ballroom covering Waltz, Tango, Foxtrot, and Viennese Waltz in the American Smooth tradition.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Video</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC LABELS -->
+<section>
+  <span class="section-num">04 &mdash; Music Labels</span>
+  <h2>Dance Music <span class="accent">Partners</span></h2>
+  <p class="section-subtitle">Professional dance music from established labels, specifically produced and curated for practice and competition.</p>
+
+  <div class="content-grid">
+    <div class="content-card music">
+      <div class="content-info">
+        <h3>Casa Musica <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">Music Label</div>
+        <p>One of the leading dance music labels worldwide. Extensive catalog of professionally produced tracks across all ballroom and Latin dance styles. Multiple albums available on the platform.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Audio</div>
+      </div>
+    </div>
+
+    <div class="content-card music">
+      <div class="content-info">
+        <h3>DanceSport Records <span class="badge licensable">Partner Content</span></h3>
+        <div class="partner-name">Music Label</div>
+        <p>Specialized dance music label featuring the popular "Hot Rhythm" series. High-quality dance tracks used by dancers and dance schools internationally.</p>
+      </div>
+      <div class="content-meta">
+        <div class="content-type">Audio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LICENSING NOTE -->
+<section>
+  <span class="section-num">05 &mdash; Licensing</span>
+  <h2>Content <span class="accent">Licensing</span></h2>
+
+  <div class="note-box info" style="margin-top: 0; margin-bottom: 24px;">
+    <strong>Included in sale:</strong> Elite Solo Class and Medal Classes are transferred with full intellectual property rights. The buyer owns this content outright.
+  </div>
+
+  <div class="note-box warning">
+    <strong>Partner content:</strong> All other content packages are from external content partners. The platform integrations, media hosting structure, and content management system are fully included. Content partner licenses must be negotiated separately by the buyer. Existing partner contacts and relationships will be shared during handover to facilitate a smooth transition.
+  </div>
+
+  <div style="margin-top: 40px;">
+    <h3 style="margin-bottom: 16px;">Content Partner Advantages for the Buyer</h3>
+    <div class="content-grid">
+      <div class="content-card" style="border-left: 3px solid var(--accent);">
+        <div class="content-info">
+          <p style="margin-bottom: 0;"><strong style="color: var(--text-primary);">Ready Infrastructure</strong> &mdash; All content management, media delivery, and streaming infrastructure is built and operational. Adding or updating content requires no development work.</p>
+        </div>
+      </div>
+      <div class="content-card" style="border-left: 3px solid var(--accent);">
+        <div class="content-info">
+          <p style="margin-bottom: 0;"><strong style="color: var(--text-primary);">Established Relationships</strong> &mdash; Partner contacts and communication history are included in the handover. The buyer does not start from zero.</p>
+        </div>
+      </div>
+      <div class="content-card" style="border-left: 3px solid var(--accent);">
+        <div class="content-info">
+          <p style="margin-bottom: 0;"><strong style="color: var(--text-primary);">Proven Catalog Structure</strong> &mdash; 17 packages with 3,500+ assets across video, audio, and PDF. The content hierarchy and metadata are fully built out in the database.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<section style="padding: 40px 0; text-align: center; border-bottom: none;">
+  <p style="font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.1em;">SnappDance &mdash; Content Library Overview &mdash; Confidential 2026</p>
+</section>
+
+</div>
+</body>
+</html>
